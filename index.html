@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TEAM ONLINE SAS</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="glass header">
+  <h1>TEAM ONLINE</h1>
+  <nav>
+    <a href="#team">Team</a>
+    <a href="#gallery">Gallery</a>
+    <button id="darkToggle">🌙</button>
+  </nav>
+</header>
+
+<section class="hero">
+  <h2 id="aiText">Selamat Datang</h2>
+  <p>Ini Adalah Website Yang Berisikan Profil Anggota Team, Dan Juga Beberapa Moment Moment Kenangan Kami</p>
+</section>
+
+<section id="team" class="team-section">
+  <h2>Our Team</h2>
+  <div class="team-grid" id="teamGrid"></div>
+</section>
+
+<section id="gallery" class="gallery-section">
+  <h2>Memory Gallery</h2>
+
+  <div class="gallery-filter">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="liburan">Liburan</button>
+    <button class="filter-btn" data-filter="event">Event</button>
+    <button class="filter-btn" data-filter="kenangan">Kenangan</button>
+  </div>
+
+  <div class="gallery-grid" id="galleryGrid"></div>
+</section>
+
+<footer>
+  <p>© 2026 TEAM ONLINE • SAHABAT ABADI SEJAHTERA</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
