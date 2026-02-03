@@ -3,47 +3,71 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TEAM ONLINE SAS</title>
+  <title>DOZ KILLER</title>
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body data-theme="dark">
 
-<header class="glass header">
-  <h1>TEAM ONLINE</h1>
-  <nav>
-    <a href="#team">Team</a>
-    <a href="#gallery">Gallery</a>
-    <button id="darkToggle">🌙</button>
-  </nav>
+<!-- INTRO -->
+<div class="intro">
+  <h1>WELCOME</h1>
+</div>
+
+<!-- NAV -->
+<header class="nav">
+  <span class="logo">DOZ KILLER</span>
+  <div class="actions">
+    <button id="themeBtn">🌙</button>
+    <button id="menuBtn">☰</button>
+  </div>
 </header>
 
-<section class="hero">
-  <h2 id="aiText">Selamat Datang</h2>
-  <p>Ini Adalah Website Yang Berisikan Profil Anggota Team, Dan Juga Beberapa Moment Moment Kenangan Kami</p>
-</section>
+<!-- HOME -->
+<main class="home">
+  <h1>DOZ KILLER</h1>
+  <p>Built at Work, Bonded as Family.</p>
+</main>
 
-<section id="team" class="team-section">
-  <h2>Our Team</h2>
-  <div class="team-grid" id="teamGrid"></div>
-</section>
+<!-- MENU -->
+<aside class="menu" id="menu">
 
-<section id="gallery" class="gallery-section">
-  <h2>Memory Gallery</h2>
+  <!-- VIDEO BACKGROUND -->
+  <video class="menu-video" id="menuVideo" muted loop playsinline>
+    <source src="img/menu-bg.mp4" type="video/mp4">
+  </video>
 
-  <div class="gallery-filter">
-    <button class="filter-btn active" data-filter="all">All</button>
-    <button class="filter-btn" data-filter="liburan">Liburan</button>
-    <button class="filter-btn" data-filter="event">Event</button>
-    <button class="filter-btn" data-filter="kenangan">Kenangan</button>
+  <!-- OVERLAY -->
+  <div class="menu-overlay"></div>
+
+  <!-- SLIDESHOW -->
+  <div class="menu-slideshow" id="menuSlideshow"></div>
+
+  <!-- CONTENT (SCROLLABLE) -->
+  <div class="menu-content">
+
+    <div class="menu-head">
+      <h2>Menu</h2>
+      <button id="closeMenu">✕</button>
+    </div>
+
+    <div class="tabs">
+      <button class="tabBtn active" data-tab="team">Anggota</button>
+      <button class="tabBtn" data-tab="gallery">Galeri</button>
+    </div>
+
+    <div class="tab active" id="team"></div>
+
+    <div class="tab" id="gallery">
+      <div class="gallery-grid" id="galleryGrid"></div>
+    </div>
+
   </div>
+</aside>
 
-  <div class="gallery-grid" id="galleryGrid"></div>
-</section>
-
-<footer>
-  <p>© 2026 TEAM ONLINE • SAHABAT ABADI SEJAHTERA</p>
-</footer>
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <img id="lightImg">
+</div>
 
 <script src="script.js"></script>
 </body>
