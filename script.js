@@ -28,11 +28,10 @@ closeMenu.onclick = () => {
 const teamData = [
   {name:"ALOYSIUS DIMAS", role:"NOMAD", img:"1.jpg"},
   {name:"MAESA ADIYANSAH", role:"MEMBER", img:"profile.jpg"},
-  {name:"RIKKI KURNIAWAN", role:"MEMBER", img:"team2.jpg"},
+  {name:"RIKKI KURNIAWAN", role:"DEVELOPER", img:"team2.jpg"},
   {name:"RIKI ABEI P", role:"MEMBER", img:"team3.jpg"},
   {name:"ANDIKA", role:"MEMBER", img:"team4.jpg"},
   {name:"RAMADHAN YAHYA", role:"MEMBER", img:"team4.jpg"},
-  {name:"TAUFAN NEGORO", role:"MEMBER", img:"team4.jpg"},
   {name:"ELAN SANJAYA", role:"MEMBER", img:"team4.jpg"},
   {name:"SYARIF HIDAYAT", role:"MEMBER", img:"team4.jpg"},
   {name:"DIMAS WIJAYA", role:"MEMBER", img:"team4.jpg"},
@@ -116,3 +115,4 @@ function openLightbox(src) {
 }
 
 lightbox.onclick = () => lightbox.style.display = "none";
+
