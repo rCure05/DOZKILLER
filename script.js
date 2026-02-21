@@ -108,7 +108,7 @@ const crewData = [
     { name: "Rikki Kurniawan", role: "H.Member/Dev" },
     { name: "Ndaru Gaesang", role: "High Member" },
     { name: "Syarif Hidayat", role: "High Member" },
-    { name: "Rachmat Diki", role: "High Member" },
+    { name: "Rahmat Diki", role: "High Member" },
     { name: "Andika Saputra", role: "Member" },
     { name: "Ari Santoso", role: "Member" },
     { name: "Dimas Wijaya", role: "Member" }
@@ -137,3 +137,4 @@ const observer = new IntersectionObserver(entries => {
 
 document.querySelectorAll(".hidden")
     .forEach(el => observer.observe(el));
+
