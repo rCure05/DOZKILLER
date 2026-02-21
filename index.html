@@ -1,72 +1,61 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DOZ KILLER</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doz Killer</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body data-theme="dark">
+<body>
 
-<!-- INTRO -->
-<div class="intro">
-  <h1>WELCOME</h1>
-</div>
+<nav>
+    <h2 class="logo">DOZ KILLER</h2>
 
-<!-- NAV -->
-<header class="nav">
-  <span class="logo">DOZ KILLER</span>
-  <div class="actions">
-    <button id="themeBtn">🌙</button>
-    <button id="menuBtn">☰</button>
-  </div>
-</header>
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#crew">Crew</a></li>
+    </ul>
 
-<!-- HOME -->
-<main class="home">
-  <h1>DOZ KILLER</h1>
-  <p>Built at Work, Bonded as Family.</p>
-</main>
+    <div class="theme-switch">
+        <input type="checkbox" id="themeToggle">
+        <label for="themeToggle" class="slider"></label>
+    </div>
+</nav>
 
-<!-- MENU -->
-<aside class="menu" id="menu">
+<section class="hero" id="home">
 
-  <!-- VIDEO BACKGROUND -->
-  <video class="menu-video" id="menuVideo" muted loop playsinline>
-    <source src="img/menu-bg.mp4" type="video/mp4">
-  </video>
+    <video autoplay muted loop playsinline class="hero-video">
+        <source src="assets/hero-video.mp4" type="video/mp4">
+    </video>
 
-  <!-- OVERLAY -->
-  <div class="menu-overlay"></div>
+    <div class="hero-overlay"></div>
 
-  <!-- SLIDESHOW -->
-  <div class="menu-slideshow" id="menuSlideshow"></div>
-
-  <!-- CONTENT (SCROLLABLE) -->
-  <div class="menu-content">
-
-    <div class="menu-head">
-      <h2>Menu</h2>
-      <button id="closeMenu">✕</button>
+    <div class="hero-content">
+        <h1>DOZ KILLER</h1>
+        <p>Built at Work, Bonded as Family.</p>
     </div>
 
-    <div class="tabs">
-      <button class="tabBtn active" data-tab="team">Anggota</button>
-      <button class="tabBtn" data-tab="gallery">Galeri</button>
-    </div>
+</section>
 
-    <div class="tab active" id="team"></div>
+<section id="gallery" class="section hidden">
+    <h2>Gallery</h2>
+    <div class="gallery" id="galleryContainer"></div>
+</section>
 
-    <div class="tab" id="gallery">
-      <div class="gallery-grid" id="galleryGrid"></div>
-    </div>
+<section id="crew" class="section hidden">
+    <h2>Our Crew</h2>
+    <div class="crew-container" id="crewContainer"></div>
+</section>
 
-  </div>
-</aside>
+<footer>
+    © 2024 DOZKILLER
+</footer>
 
 <!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox">
-  <img id="lightImg">
+<div id="lightbox">
+    <span class="close">&times;</span>
+    <img id="lightboxImg">
 </div>
 
 <script src="script.js"></script>
