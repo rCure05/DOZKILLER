@@ -22,39 +22,47 @@ toggle.addEventListener("change", () => {
 const photos = [
     {
         src: "img/camping1.jpg",
-        title: "Mountain View"
+        title: "Camping"
     },
     {
         src: "img/camping2.jpg",
-        title: "Ocean Breeze"
+        title: "Camping"
     },
     {
         src: "img/camping3.jpg",
-        title: "Adventure"
+        title: "Camping"
     },
     {
         src: "img/villa1.jpg",
-        title: "Adventure"
+        title: "Villa"
     },
     {
         src: "img/villa2.jpg",
-        title: "Adventure"
+        title: "Villa"
     },
     {
         src: "img/villa3.jpg",
-        title: "Adventure"
+        title: "Villa"
     },
     {
         src: "img/villa4.jpg",
-        title: "Adventure"
+        title: "Villa"
     },
     {
         src: "img/villa5.jpg",
-        title: "Adventure"
+        title: "Villa"
     },
     {
         src: "img/villa6.jpg",
-        title: "Golden Hour"
+        title: "Villa"
+    },
+    {
+        src: "img/gacoan1.jpg",
+        title: "Gacoan"
+    },
+    {
+        src: "img/gacoan2.jpg",
+        title: "Gacoan"
     }
 ];
 
@@ -108,7 +116,7 @@ const crewData = [
     { name: "Rikki Kurniawan", role: "H.Member/Dev" },
     { name: "Ndaru Gaesang", role: "High Member" },
     { name: "Syarif Hidayat", role: "High Member" },
-    { name: "Rahmat Diki", role: "High Member" },
+    { name: "Rachmat Diki", role: "High Member" },
     { name: "Andika Saputra", role: "Member" },
     { name: "Ari Santoso", role: "Member" },
     { name: "Dimas Wijaya", role: "Member" }
@@ -137,4 +145,3 @@ const observer = new IntersectionObserver(entries => {
 
 document.querySelectorAll(".hidden")
     .forEach(el => observer.observe(el));
-
