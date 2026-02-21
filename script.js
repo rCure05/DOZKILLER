@@ -1,118 +1,139 @@
-const body = document.body;
-const themeBtn = document.getElementById("themeBtn");
-const menuBtn = document.getElementById("menuBtn");
-const closeMenu = document.getElementById("closeMenu");
-const menu = document.getElementById("menu");
-const video = document.getElementById("menuVideo");
+// =======================
+// THEME TOGGLE
+// =======================
+const toggle = document.getElementById("themeToggle");
 
-/* THEME */
-themeBtn.onclick = () => {
-  const dark = body.dataset.theme === "dark";
-  body.dataset.theme = dark ? "light" : "dark";
-  themeBtn.textContent = dark ? "🌤️" : "🌙";
-};
-
-/* MENU OPEN / CLOSE */
-menuBtn.onclick = () => {
-  menu.classList.add("active");
-  video.currentTime = 0;
-  video.play();
-};
-
-closeMenu.onclick = () => {
-  menu.classList.remove("active");
-  video.pause();
-};
-
-/* DATA */
-const teamData = [
-  {name:"ALOYSIUS DIMAS", role:"NOMAD", img:"1.jpg"},
-  {name:"MAESA ADIYANSAH", role:"MEMBER", img:"profile.jpg"},
-  {name:"RIKKI KURNIAWAN", role:"DEVELOPER", img:"team2.jpg"},
-  {name:"RIKI ABEI P", role:"MEMBER", img:"team3.jpg"},
-  {name:"ANDIKA", role:"MEMBER", img:"team4.jpg"},
-  {name:"RAMADHAN YAHYA", role:"MEMBER", img:"team4.jpg"},
-  {name:"ELAN SANJAYA", role:"MEMBER", img:"team4.jpg"},
-  {name:"SYARIF HIDAYAT", role:"MEMBER", img:"team4.jpg"},
-  {name:"DIMAS WIJAYA", role:"MEMBER", img:"team4.jpg"},
-  {name:"FEBI ARYANTO", role:"MEMBER", img:"team4.jpg"},
-  {name:"RAHMAT DIKI", role:"MEMBER", img:"team4.jpg"},
-  {name:"ARI SANTOSO", role:"MEMBER", img:"team4.jpg"},
-  {name:"NDARU GAESANG", role:"TREASURY", img:"team4.jpg"},
-  {name:"RIZKY HARYANTO", role:"MEMBER", img:"team4.jpg"}
-];
-
-const galleryData = [
-  "img/camping1.jpg",
-  "img/camping2.jpg",
-  "img/camping3.jpg",
-  "img/villa1.jpg",
-  "img/villa2.jpg",
-  "img/villa3.jpg",
-  "img/villa4.jpg",
-  "img/villa5.jpg",
-  "img/villa6.jpg"
-];
-
-/* RENDER TEAM */
-const teamTab = document.getElementById("team");
-teamData.forEach(m => {
-  teamTab.innerHTML += `
-    <div class="member">
-      <img src="${m.img}">
-      <div>
-        <strong>${m.name}</strong><br>
-        <small>${m.role}</small>
-      </div>
-    </div>
-  `;
-});
-
-/* RENDER GALLERY */
-const galleryGrid = document.getElementById("galleryGrid");
-galleryData.forEach(src => {
-  const img = document.createElement("img");
-  img.src = src;
-  img.loading = "lazy";
-  img.onclick = () => openLightbox(src);
-  galleryGrid.appendChild(img);
-});
-
-/* SLIDESHOW (SOURCE = GALERI) */
-const slideshow = document.getElementById("menuSlideshow");
-galleryData.forEach((src, i) => {
-  const img = document.createElement("img");
-  img.src = src;
-  if (i === 0) img.classList.add("active");
-  slideshow.appendChild(img);
-});
-
-let slideIndex = 0;
-setInterval(() => {
-  const slides = slideshow.querySelectorAll("img");
-  slides.forEach(s => s.classList.remove("active"));
-  slideIndex = (slideIndex + 1) % slides.length;
-  slides[slideIndex].classList.add("active");
-}, 3000);
-
-/* TABS */
-document.querySelectorAll(".tabBtn").forEach(btn => {
-  btn.onclick = () => {
-    document.querySelectorAll(".tabBtn").forEach(b => b.classList.remove("active"));
-    document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
-    btn.classList.add("active");
-    document.getElementById(btn.dataset.tab).classList.add("active");
-  };
-});
-
-/* LIGHTBOX */
-const lightbox = document.getElementById("lightbox");
-const lightImg = document.getElementById("lightImg");
-
-function openLightbox(src) {
-  lightImg.src = src;
-  lightbox.style.display = "flex";
+if(localStorage.getItem("theme") === "dark"){
+    document.body.classList.add("dark");
+    toggle.checked = true;
 }
 
-lightbox.onclick = () => lightbox.style.display = "none";
+toggle.addEventListener("change", () => {
+    document.body.classList.toggle("dark");
+    localStorage.setItem("theme",
+        document.body.classList.contains("dark") ? "dark" : "light"
+    );
+});
 
+// =======================
+// DYNAMIC GALLERY
+// =======================
+
+const photos = [
+    {
+        src: "img/camping1.jpg",
+        title: "Mountain View"
+    },
+    {
+        src: "img/camping2.jpg",
+        title: "Ocean Breeze"
+    },
+    {
+        src: "img/camping3.jpg",
+        title: "Adventure"
+    },
+    {
+        src: "img/villa1.jpg",
+        title: "Adventure"
+    },
+    {
+        src: "img/villa2.jpg",
+        title: "Adventure"
+    },
+    {
+        src: "img/villa3.jpg",
+        title: "Adventure"
+    },
+    {
+        src: "img/villa4.jpg",
+        title: "Adventure"
+    },
+    {
+        src: "img/villa5.jpg",
+        title: "Adventure"
+    },
+    {
+        src: "img/villa6.jpg",
+        title: "Golden Hour"
+    }
+];
+
+const galleryContainer = document.getElementById("galleryContainer");
+
+photos.forEach(photo => {
+    const item = document.createElement("div");
+    item.classList.add("gallery-item");
+
+    item.innerHTML = `
+        <img src="${photo.src}" alt="">
+        <div class="gallery-overlay">
+            <h3>${photo.title}</h3>
+        </div>
+    `;
+
+    item.addEventListener("click", () => openLightbox(photo.src));
+    galleryContainer.appendChild(item);
+});
+
+// =======================
+// LIGHTBOX
+// =======================
+
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightboxImg");
+const closeBtn = document.querySelector(".close");
+
+function openLightbox(src){
+    lightbox.style.display = "flex";
+    lightboxImg.src = src;
+}
+
+closeBtn.onclick = () => lightbox.style.display = "none";
+
+lightbox.onclick = e => {
+    if(e.target !== lightboxImg){
+        lightbox.style.display = "none";
+    }
+};
+
+// =======================
+// CREW DATA
+// =======================
+
+const crewData = [
+    { name: "Febi Aryanto", role: "High Rank" },
+    { name: "Riki Abei", role: "High Rank" },
+    { name: "Elan Sanjaya", role: "High Rank" },
+    { name: "Maesa Adiansah", role: "H.Member/Front Man" },
+    { name: "Rikki Kurniawan", role: "H.Member/Dev" },
+    { name: "Ndaru Gaesang", role: "High Member" },
+    { name: "Syarif Hidayat", role: "High Member" },
+    { name: "Rachmat Diki", role: "High Member" },
+    { name: "Andika Saputra", role: "Member" },
+    { name: "Ari Santoso", role: "Member" },
+    { name: "Dimas Wijaya", role: "Member" }
+];
+
+const crewContainer = document.getElementById("crewContainer");
+
+crewData.forEach(member => {
+    const card = document.createElement("div");
+    card.classList.add("crew-card");
+    card.innerHTML = `<h3>${member.name}</h3><p>${member.role}</p>`;
+    crewContainer.appendChild(card);
+});
+
+// =======================
+// SCROLL ANIMATION
+// =======================
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            entry.target.classList.add("show");
+        }
+    });
+});
+
+document.querySelectorAll(".hidden")
+    .forEach(el => observer.observe(el));
