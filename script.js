@@ -109,6 +109,8 @@ lightbox.onclick = e => {
 // =======================
 
 const crewData = [
+    { name: "Aloysius Dimas", role: "Nomad" },
+    { name: "Firgiawan", role: "Nomad" },
     { name: "Febi Aryanto", role: "High Rank" },
     { name: "Riki Abei", role: "High Rank" },
     { name: "Elan Sanjaya", role: "High Rank" },
@@ -145,3 +147,4 @@ const observer = new IntersectionObserver(entries => {
 
 document.querySelectorAll(".hidden")
     .forEach(el => observer.observe(el));
+
